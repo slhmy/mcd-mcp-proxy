@@ -86,7 +86,9 @@ The proxy automatically adds the following CORS headers:
 - `Access-Control-Allow-Headers`: DNT, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Range, Authorization
 - `Access-Control-Expose-Headers`: Content-Length, Content-Range
 
-**Note**: Credentials (`Access-Control-Allow-Credentials`) are not enabled to maintain compatibility with wildcard origins. If you need to send credentials (cookies, authorization headers), set `ALLOWED_ORIGIN` to a specific domain.
+**Note**: The `Access-Control-Allow-Credentials` header is not included by default to maintain compatibility with wildcard origins (`*`). If you need credential support (cookies, authorization headers with credentials), you'll need to:
+1. Set `ALLOWED_ORIGIN` to a specific domain (not `*`)
+2. Modify the nginx configuration to add the credentials header
 
 ## License
 
